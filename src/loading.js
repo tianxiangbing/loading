@@ -27,7 +27,7 @@
 		},
 		start: function() {
 			var _this = this;
-			var target = _this .target;
+			var target = _this.target;
 			var content = $(target);
 			var loading = this.loading;
 			if (!loading) {
@@ -53,10 +53,19 @@
 				left: offset.left
 			});
 			var icon = loading.find('i');
-			var h = $(target)[0].tagName != "HTML" ? ch : $(window).height();
-			var w = $(target)[0].tagName != "HTML" ? cw :  $(window).width() ;
-			var top = (h- icon.height()) / 2+ $(window).scrollTop();
-			var left = (w - icon.width()) / 2+ $(window).scrollLeft();
+			var h = ch,
+				w = cw,
+				top = 0,
+				left = 0;
+			if ($(target)[0].tagName == "HTML") {
+				h = $(window).height();
+				w = $(window).width();
+				top = (h - icon.height()) / 2 + $(window).scrollTop();
+				left = (w - icon.width()) / 2 + $(window).scrollLeft();
+			} else {
+				top = (h - icon.height()) / 2;
+				left = (w - icon.width()) / 2;
+			}
 			icon.css({
 				top: top,
 				left: left
