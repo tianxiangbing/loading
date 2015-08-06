@@ -53,8 +53,8 @@
 				left: offset.left
 			});
 			var icon = loading.find('i');
-			var h = target ? ch : $(window).height()+ $(window).scrollTop();
-			var w = target ? cw :  $(window).width() + $(window).scrollLeft();
+			var h = $(target)[0].tagName == "HTML" ? ch : $(window).height()+ $(window).scrollTop();
+			var w = $(target)[0].tagName == "HTML" ? cw :  $(window).width() + $(window).scrollLeft();
 			var top = (h- icon.height()) / 2;
 			var left = (w - icon.width()) / 2;
 			icon.css({
