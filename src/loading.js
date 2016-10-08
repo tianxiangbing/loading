@@ -27,21 +27,26 @@
 		},
 		start: function() {
 			var _this = this;
-			var target = _this.target;
-			var content = $(target);
 			var loading = this.loading;
 			if (!loading) {
 				loading = $(_this.loadingTpl);
 				$('body').append(loading);
 			}
 			this.loading = loading;
+			//console.log(cw,ch)
+			this.setPosition();
+		},
+		setPosition: function() {
+			var _this = this;
+			var loading = this.loading;
+			var target = _this.target;
+			var content = $(target);
 			var ch = $(content).outerHeight();
 			var cw = $(content).outerWidth();
 			if ($(target)[0].tagName == "HTML") {
 				ch = Math.max($(target).height(), $(window).height());
 				cw = Math.max($(target).width(), $(window).width());
 			}
-			//console.log(cw,ch)
 			loading.height(ch).width(cw);
 			loading.find('div').height(ch).width(cw);
 			if (ch < 100) {
@@ -81,6 +86,9 @@
 			var _this = this;
 			$(this.target).on('stop', function() {
 				_this.stop();
+			});
+			$(window).on('resize', function() {
+				_this.setPosition();
 			});
 		}
 	}
