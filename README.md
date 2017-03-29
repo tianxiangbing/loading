@@ -4,7 +4,7 @@ loading...
 ![loading](example/loading.jpg)
 
 **[DEMO请点击这里查看.](http://www.lovewebgames.com/jsmodule/loading.html "loading demo")**
-#调用示例
+# 调用示例
 html:
 
 	<p>
@@ -48,16 +48,16 @@ js:
 			load.stop();
 		}, 30000)
 	});
-#API
-##属性
-###target:string||dom
+# API
+## 属性
+### target:string||dom
 	需要显示loading的节点，不传值时显示全屏的loading
-##方法
-###start:function()
+## 方法
+### start:function()
 	开始loading
-###stop:function()
+### stop:function()
 	结束loading
-##事件
-###stop
+## 事件
+### stop
 	target的stop事件触发时，结束loading. 如
 	$('html').trigger('stop')会结束全屏的loading动画.
