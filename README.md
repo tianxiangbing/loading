@@ -7,7 +7,7 @@ loading...
 
 [https://github.com/tianxiangbing/network](network)有对loading作一个完美的演示
 
-#调用示例
+# 调用示例
 html:
 
 	<p>
@@ -51,16 +51,16 @@ js:
 			load.stop();
 		}, 30000)
 	});
-#API
-##属性
-###target:string||dom
+# API
+## 属性
+### target:string||dom
 	需要显示loading的节点，不传值时显示全屏的loading
-##方法
-###start:function()
+## 方法
+### start:function()
 	开始loading
-###stop:function()
+### stop:function()
 	结束loading,这里会销毁loading节点
-##事件
-###stop
+## 事件
+### stop
 	target的stop事件触发时，结束loading. 如
 	$('html').trigger('stop')会结束全屏的loading动画.
