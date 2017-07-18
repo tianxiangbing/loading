@@ -1,14 +1,15 @@
 /*
  * Created with Sublime Text 3.
  * license: http://www.lovewebgames.com/jsmodule/index.html
- * github: https://github.com/tianxiangbing/format-number
+ * github: https://github.com/tianxiangbing/loading
  * User: 田想兵
  * Date: 2015-08-05
  * Time: 11:27:55
  * Contact: 55342775@qq.com
+ * desc:请尽量使用github上的代码，会修复一些问题，关注https://github.com/tianxiangbing/loading
  */
 ;
-(function(root, factory) {
+(function (root, factory) {
 	//amd
 	if (typeof define === 'function' && define.amd) {
 		define(['$'], factory);
@@ -17,15 +18,16 @@
 	} else {
 		root.Loading = factory(window.Zepto || window.jQuery || $);
 	}
-})(this, function($) {
-	var Loading = function() {};
+})(window, function ($) {
+	var Loading = function () { };
 	Loading.prototype = {
 		loadingTpl: '<div class="ui-loading"><div class="ui-loading-mask"></div><i></i></div>',
-		stop: function() {
+		stop: function () {
 			var content = $(this.target);
 			this.loading.remove();
+			this.loading = null;
 		},
-		start: function() {
+		start: function () {
 			var _this = this;
 			var loading = this.loading;
 			if (!loading) {
@@ -36,7 +38,7 @@
 			//console.log(cw,ch)
 			this.setPosition();
 		},
-		setPosition: function() {
+		setPosition: function () {
 			var _this = this;
 			var loading = this.loading;
 			var target = _this.target;
@@ -76,18 +78,18 @@
 				left: left
 			})
 		},
-		init: function(settings) {
+		init: function (settings) {
 			settings = settings || {};
 			this.loadingTpl = settings.loadingTpl || this.loadingTpl;
 			this.target = settings.target || 'html';
 			this.bindEvent();
 		},
-		bindEvent: function() {
+		bindEvent: function () {
 			var _this = this;
-			$(this.target).on('stop', function() {
+			$(this.target).on('stop', function () {
 				_this.stop();
 			});
-			$(window).on('resize', function() {
+			$(window).on('resize', function () {
 				_this.setPosition();
 			});
 		}

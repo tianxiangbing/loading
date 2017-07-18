@@ -4,6 +4,9 @@ loading...
 ![loading](example/loading.jpg)
 
 **[DEMO请点击这里查看.](http://www.lovewebgames.com/jsmodule/loading.html "loading demo")**
+
+[https://github.com/tianxiangbing/network](network)有对loading作一个完美的演示
+
 #调用示例
 html:
 
@@ -56,7 +59,7 @@ js:
 ###start:function()
 	开始loading
 ###stop:function()
-	结束loading
+	结束loading,这里会销毁loading节点
 ##事件
 ###stop
 	target的stop事件触发时，结束loading. 如
