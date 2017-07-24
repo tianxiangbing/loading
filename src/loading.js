@@ -12,9 +12,9 @@
 (function (root, factory) {
 	//amd
 	if (typeof define === 'function' && define.amd) {
-		define(['$'], factory);
+		define(['jquery'], factory);
 	} else if (typeof exports === 'object') { //umd
-		module.exports = factory();
+		module.exports = factory($);
 	} else {
 		root.Loading = factory(window.Zepto || window.jQuery || $);
 	}
@@ -23,7 +23,6 @@
 	Loading.prototype = {
 		loadingTpl: '<div class="ui-loading"><div class="ui-loading-mask"></div><i></i></div>',
 		stop: function () {
-			var content = $(this.target);
 			this.loading.remove();
 			this.loading = null;
 		},
@@ -90,7 +89,7 @@
 				_this.stop();
 			});
 			$(window).on('resize', function () {
-				_this.setPosition();
+				_this.loading && _this.setPosition();
 			});
 		}
 	}
