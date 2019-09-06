@@ -5,7 +5,7 @@ loading...
 
 **[DEMO请点击这里查看.](http://www.lovewebgames.com/jsmodule/loading.html "loading demo")**
 
-[https://github.com/tianxiangbing/network](network)有对loading作一个完美的演示
+[http://tianxiangbing.github.io/loading/example/](loading)有对loading作一个完美的演示
 
 # 调用示例
 html:
